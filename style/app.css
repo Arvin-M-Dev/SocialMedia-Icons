@@ -1,0 +1,133 @@
+/* 
+
+    -- font
+
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* 
+
+    -- Reset-style
+
+*/
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+/*
+
+-- App
+
+*/
+
+html{
+    font-size: 10px;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    background-color: #ebebf6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+/*
+
+-- Style
+
+*/
+
+.social-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 51rem;
+    gap: 3rem;
+    z-index: 2;
+}
+
+.social-container__wrapper{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 100%;
+    fill: #000;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0 ,0 ,0 ,0.05);
+    transition: all 0.3s cubic-bezier(0.42,0,0.44,1.68);
+    color: #fff;
+}
+.social-container__wrapper::before{
+    content: attr(data-social);
+    background-color: var(--accent-color);
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-30px) rotate(25deg);
+    padding: .8rem 1.6rem;
+    border-radius: 8rem;
+    pointer-events: none;
+    box-shadow: 0 5px 10px rgba(0 ,0 ,0 ,0.05);
+    transition: all 230ms cubic-bezier(0.42,0,0.44,1.68);
+
+}
+.social-container__wrapper::after{
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translateY(0) rotate(25deg);
+    box-shadow: 0 5px 10px rgba(0 ,0 ,0 ,0.05);
+    transition: all 230ms cubic-bezier(0.42,0,0.44,1.68) ;
+
+}
+.social-container__wrapper:hover::after{
+    opacity: 1;
+    transform: translateY(-44px) rotate(0);
+}
+.social-container__wrapper:hover::before{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-65px) rotate(0);
+}
+.social-container__wrapper:hover{
+    background-color: var(--accent-color);
+    fill: #fff;
+}
+
+.text-copy{
+    text-align: center;
+    margin-top: 6rem;
+    font-weight: 400;
+}
+@media screen and (max-width: 412px){
+    *,
+    *::after,
+    *::before{
+        cursor: none !important;
+    }
+    .social-container{
+        gap: 1.5rem;
+    }
+}
